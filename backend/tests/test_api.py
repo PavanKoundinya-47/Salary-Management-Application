@@ -1,6 +1,6 @@
 import os
 os.environ["DATABASE_URL"] = "sqlite:///./test_salary_management.db"
-os.environ["CORS_ORIGINS"] = "http://localhost:5173"
+os.environ["CORS_ORIGINS"] = "http://localhost:5174"
 from fastapi.testclient import TestClient
 from app.main import app
 from app.database import Base, engine, SessionLocal

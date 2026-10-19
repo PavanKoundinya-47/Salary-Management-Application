@@ -2,6 +2,15 @@
 
 A full-stack salary-management dashboard for an HR manager overseeing a global workforce. Built to the uploaded **Salary Management Assessment — Candidates** brief: React UI, relational database, 10,000-person seed script, meaningful tests, and implementation artifacts. “People Ledger” is the demo workspace name, not a claim about an official Incubyte product.
 
+## Live Application & Demo Videos
+
+- **Live Application:** [Open Salary Management Dashboard](https://salary-management-application.vercel.app/)
+- **Source Code:** [GitHub Repository](https://github.com/PavanKoundinya-47/Salary-Management-Application)
+
+### Video Walkthroughs
+
+- **Demo & Deployment Walkthrough:** [Watch Deployment Video](<https://drive.google.com/file/d/12IYbRZArgUkpBwwRXJsVTDeVWXul2eDz/view?usp=sharing>)
+
 ## Features
 
 - Search employee names, email, role, and employee ID; filter by country, department, and status.
@@ -46,7 +55,7 @@ The default local database is `backend/salary_management.db` when launched from 
 
 ## Tests
 
-```bash
+```bash 
 cd backend
 pip install -r requirements.txt
 pytest -q
@@ -73,28 +82,38 @@ curl -X PATCH http://localhost:8001/api/employees/1 \
   -d '{"annual_salary": 1450000.00}'
 ```
 
-## Requirements and scope
+## Requirements and Design Documentation
 
-See [`docs/requirements.md`](docs/requirements.md) for the one-page pre-build requirements document. Architecture and product decisions are in [`docs/design-decisions.md`](docs/design-decisions.md), the demo walkthrough is in [`docs/demo-script.md`](docs/demo-script.md), and [`docs/ai-usage.md`](docs/ai-usage.md) records the AI-assisted workflow and verification checklist.
+The repository includes the following implementation artifacts:
 
-## Known limitations / production hardening
+- [Requirements document](docs/requirements.md) — pre-build requirements and scope.
+- [Design decisions](docs/design-decisions.md) — architecture, trade-offs, and product decisions.
+- [Demo script](docs/demo-script.md) — application walkthrough.
+- [AI usage documentation](docs/ai-usage.md) — AI-assisted workflow and verification checklist.
 
-- Authentication, role-based access, approval workflow, audit log, and encryption/key management are intentionally not implemented in this assessment demo. Salary data is sensitive; do not expose this demo to public traffic or real employee data.
-- Salary comparisons are grouped by currency. The system deliberately does not add INR to USD or imply a conversion without an exchange-rate source and effective date.
-- CSV export exports the current visible page, not all filtered records; a production version should provide a server-side export endpoint with authorization and audit logging.
-- Demo seed data is synthetic. Country assignment and salaries are plausible fixtures, not compensation policy or market benchmarks.
-- No deployment or demo video is claimed by this repository artifact. Deploy it to a host of your choice and record the walkthrough before submission.
+## Deployment
 
-## Git history requirement
+The application is deployed using:
 
-The assessment explicitly asks for incremental commits. This generated directory is not a pre-authored commit history. Create a repository and commit the work in reviewable stages rather than manufacturing past timestamps:
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Database:** PostgreSQL on Render
 
-```bash
-git init
-git add docs/requirements.md && git commit -m "docs: define salary management scope"
-git add backend && git commit -m "feat: implement employee API and seed data"
-git add frontend && git commit -m "feat: build HR salary dashboard"
-git add docs README.md docker-compose.yml .env.example .gitignore && git commit -m "test: document tradeoffs and local run workflow"
-```
+Production URLs:
 
-Use meaningful real commits as you iterate; do not present these suggested commits as history that already exists.
+- Frontend: [Salary Management Dashboard](https://salary-management-application.vercel.app/)
+- Backend health: [Health Check](https://salary-management-application.onrender.com/health)
+- Analytics API: [Analytics Endpoint](https://salary-management-application.onrender.com/api/analytics)
+
+## Known Limitations and Production Hardening
+
+- Authentication, role-based access control, approval workflows, audit logs, and encryption/key management are not implemented in this assessment demo.
+- Salary data is sensitive. Use synthetic data only and do not expose real employee information through this public demo.
+- Salary comparisons are grouped by currency. The application does not add INR to USD or imply currency conversion without an exchange-rate source and effective date.
+- CSV export covers the current visible page rather than all filtered records. A production version should provide a server-side export endpoint with authorization and audit logging.
+- Seed data is synthetic. Country assignments and salaries are plausible fixtures, not compensation policy or market benchmarks.
+- Deployment and demo walkthroughs are available in the **Live Application & Demo Videos** section above.
+
+## License
+
+No license has been specified for this project. All rights remain with the repository owner unless a license is added.
